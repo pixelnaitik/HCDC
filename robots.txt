@@ -1,0 +1,16 @@
+# Robots.txt for Health Care Diagnostic Center
+# https://pixelnaitik.github.io/HCDC/
+
+User-agent: *
+Allow: /
+
+# Disallow crawling of non-essential paths
+Disallow: /.git/
+Disallow: /.github/
+Disallow: /node_modules/
+
+# Crawl delay for responsible crawling
+Crawl-delay: 1
+
+# Sitemap location
+Sitemap: https://pixelnaitik.github.io/HCDC/sitemap.xml
