@@ -30,10 +30,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <!-- Preload critical resources -->
-    <link rel="preload" href="../css/styles.css" as="style">
+    <link rel="preload" href="../css/styles.min.css" as="style">
     <link rel="preload" href="../js/script.js" as="script">
 
-    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/styles.min.css">
     <link rel="icon" type="image/png" href="../assets/logos/healthcare-logo.png">
     <link rel="manifest" href="../manifest.json">
     <link rel="apple-touch-icon" href="../assets/logos/healthcare-logo.png">
@@ -65,6 +65,42 @@
             }
         }
     </style>
+
+    <!-- Structured Data for Services Page -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "MedicalClinic",
+        "name": "Health Care Diagnostic Center",
+        "description": "Comprehensive diagnostic services including routine tests, specialized assays, X-ray imaging, and preventive health packages.",
+        "url": "https://pixelnaitik.github.io/HCDC/services/",
+        "medicalSpecialty": ["Pathology", "Radiology", "Clinical Laboratory"],
+        "availableService": [
+            {
+                "@type": "MedicalTest",
+                "name": "Blood Tests",
+                "description": "Complete Blood Count, Lipid Profile, Thyroid Panel, Diabetes Panel, Liver Function, Kidney Function tests"
+            },
+            {
+                "@type": "MedicalTest",
+                "name": "X-Ray Imaging",
+                "description": "Digital X-ray services including chest, spine, limb, abdomen, and dental imaging"
+            },
+            {
+                "@type": "MedicalTest",
+                "name": "Health Packages",
+                "description": "Comprehensive preventive health checkup packages for different age groups and health concerns"
+            }
+        ],
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Gaya",
+            "addressRegion": "Bihar",
+            "addressCountry": "IN"
+        },
+        "telephone": "+91-9162216654"
+    }
+    </script>
 </head>
 
 <body>
@@ -270,9 +306,9 @@
                 <div class="about-content fade-in">
                     <h3 style="font-size: 1.5rem; font-weight: 600; color: var(--slate-800); margin-bottom: 16px;"
                         data-translate="xray_modern_title">
-                        Modern Digital X-Ray Facility</h3>
+                        Modern X-Ray Facility</h3>
                     <p style="color: var(--slate-600); margin-bottom: 20px;" data-translate="xray_modern_desc">Our
-                        state-of-the-art digital X-ray
+                        state-of-the-art modern X-ray
                         equipment provides high-quality diagnostic images with minimal radiation exposure. Fast,
                         accurate, and safe imaging for all your diagnostic needs.</p>
                     <div class="services-grid" style="grid-template-columns: repeat(2, 1fr); gap: 16px;">

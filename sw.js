@@ -4,17 +4,25 @@
  * @version 1.0.0
  */
 
-const CACHE_NAME = 'hcdc-cache-v1';
+const CACHE_NAME = 'hcdc-cache-v2';
 const OFFLINE_URL = '/HCDC/';
 
 // Assets to cache on install
 const STATIC_ASSETS = [
     '/HCDC/',
     '/HCDC/index.html',
-    '/HCDC/css/styles.css',
-    '/HCDC/js/script.js',
-    '/HCDC/js/translate.js',
-    '/HCDC/js/backHandler.js',
+    '/HCDC/about/',
+    '/HCDC/services/',
+    '/HCDC/technology/',
+    '/HCDC/partners/',
+    '/HCDC/contact/',
+    '/HCDC/css/styles.min.css',
+    '/HCDC/js/script.min.js',
+    '/HCDC/js/translate.min.js',
+    '/HCDC/js/backHandler.min.js',
+    '/HCDC/js/catalog.min.js',
+    '/HCDC/js/packages_data.js',
+    '/HCDC/js/test_data.js',
     '/HCDC/assets/logos/healthcare-logo.png',
     '/HCDC/assets/images/hero-lab.jpg',
     '/HCDC/manifest.json'

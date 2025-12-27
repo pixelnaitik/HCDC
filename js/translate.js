@@ -84,8 +84,8 @@ const translations = {
         // Services - X-Ray
         service_xray_title: "X-Ray Imaging Services",
         service_xray_subtitle: "Digital radiography for accurate diagnostic imaging",
-        xray_modern_title: "Modern Digital X-Ray Facility",
-        xray_modern_desc: "Our state-of-the-art digital X-ray equipment provides high-quality diagnostic images with minimal radiation exposure. Fast, accurate, and safe imaging for all your diagnostic needs.",
+        xray_modern_title: "Modern X-Ray Facility",
+        xray_modern_desc: "Our state-of-the-art modern X-ray equipment provides high-quality diagnostic images with minimal radiation exposure. Fast, accurate, and safe imaging for all your diagnostic needs.",
         xray_chest: "Chest X-Ray",
         xray_chest_desc: "Lung & heart imaging",
         xray_spine: "Spine X-Ray",
@@ -636,8 +636,8 @@ const translations = {
         // Services - X-Ray
         service_xray_title: "एक्स-रे इमेजिंग सेवाएं",
         service_xray_subtitle: "सटीक नैदानिक ​​इमेजिंग के लिए डिजिटल रेडियोग्राफी",
-        xray_modern_title: "आधुनिक डिजिटल एक्स-रे सुविधा",
-        xray_modern_desc: "हमारे अत्याधुनिक डिजिटल एक्स-रे उपकरण न्यूनतम विकिरण जोखिम के साथ उच्च गुणवत्ता वाली नैदानिक ​​छवियां प्रदान करते हैं। आपकी सभी नैदानिक ​​आवश्यकताओं के लिए तेज़, सटीक और सुरक्षित इमेजिंग।",
+        xray_modern_title: "आधुनिक एक्स-रे सुविधा",
+        xray_modern_desc: "हमारे अत्याधुनिक आधुनिक एक्स-रे उपकरण न्यूनतम विकिरण जोखिम के साथ उच्च गुणवत्ता वाली नैदानिक ​​छवियां प्रदान करते हैं। आपकी सभी नैदानिक ​​आवश्यकताओं के लिए तेज़, सटीक और सुरक्षित इमेजिंग।",
         xray_chest: "छाती का एक्स-रे",
         xray_chest_desc: "फेफड़े और हृदय इमेजिंग",
         xray_spine: "रीढ़ का एक्स-रे",

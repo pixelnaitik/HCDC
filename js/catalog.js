@@ -24,11 +24,26 @@ function getAssetPath(relativePath) {
 }
 
 // State
-let currentView = 'single'; // 'single' or 'package'
+let currentView = 'single'; // 'single' or 'packages'
 
 document.addEventListener('DOMContentLoaded', () => {
+    // Check if a specific view was requested (from homepage service card clicks)
+    const requestedView = localStorage.getItem('serviceView');
+    if (requestedView === 'packages') {
+        currentView = 'packages';
+        localStorage.removeItem('serviceView'); // Clear after using
+    } else if (requestedView === 'single') {
+        currentView = 'single';
+        localStorage.removeItem('serviceView'); // Clear after using
+    }
+    
     renderCatalog();
     setupModals();
+    
+    // Update toggle buttons to reflect current view
+    document.querySelectorAll('.view-toggle-btn').forEach(btn => btn.classList.remove('active'));
+    const activeBtn = document.getElementById(currentView === 'single' ? 'btnSingle' : 'btnPackages');
+    if (activeBtn) activeBtn.classList.add('active');
 });
 
 // Function to refresh catalog when language changes

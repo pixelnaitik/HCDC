@@ -44,7 +44,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
   </noscript>
 
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/styles.min.css">
   <link rel="icon" type="image/png" href="assets/logos/healthcare-logo.png">
   <link rel="manifest" href="manifest.json">
   <link rel="apple-touch-icon" href="assets/logos/healthcare-logo.png">
@@ -624,11 +624,6 @@
             will-change: transform;
             backface-visibility: hidden;
             -webkit-backface-visibility: hidden;
-            perspective: 1000px;
-          }
-
-          .partner-carousel:hover {
-            animation-play-state: paused;
           }
 
           .partner-detail-card {
@@ -752,7 +747,8 @@
           your
           health needs</p>
         <div class="services-grid" style="grid-template-columns: repeat(4, 1fr);">
-          <div class="service-card fade-in">
+          <a href="services/index.html#catalog-section" class="service-card fade-in" data-view="single"
+            onclick="localStorage.setItem('serviceView', 'single');">
             <div class="service-icon">
               <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                 <path
@@ -763,20 +759,22 @@
             <p class="service-desc" data-translate="service_routine_desc">Complete blood count, blood sugar, lipid
               profile, liver function, kidney function, and
               thyroid panel tests.</p>
-          </div>
-          <div class="service-card fade-in">
+          </a>
+          <a href="services/index.html#catalog-section" class="service-card fade-in" data-view="single"
+            onclick="localStorage.setItem('serviceView', 'single');">
             <div class="service-icon">
               <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                 <path
                   d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
               </svg>
             </div>
-            <h3 class="service-title" data-translate="service_specialized">Specialized Assays</h3>
+            <h3 class="service-title" data-translate="service_specialized">Organ Function</h3>
             <p class="service-desc" data-translate="service_specialized_desc">Hormone panels, tumor markers, cardiac
               markers, autoimmune tests, and infectious
               disease screening.</p>
-          </div>
-          <div class="service-card fade-in">
+          </a>
+          <a href="services/index.html#catalog-section" class="service-card fade-in" data-view="packages"
+            onclick="localStorage.setItem('serviceView', 'packages');">
             <div class="service-icon">
               <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                 <path
@@ -787,8 +785,8 @@
             <p class="service-desc" data-translate="service_packages_desc">Comprehensive preventive health checkup
               packages designed for different age groups and
               health concerns.</p>
-          </div>
-          <div class="service-card fade-in">
+          </a>
+          <a href="services/index.html#imaging" class="service-card fade-in">
             <div class="service-icon" style="background: var(--rose-50);">
               <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                 <path
@@ -799,7 +797,7 @@
             <p class="service-desc" data-translate="service_xray_desc">Digital X-ray imaging services for chest, spine,
               limbs, and other diagnostic
               radiography needs.</p>
-          </div>
+          </a>
           <style>
             @media (max-width: 1024px) {
               .services-grid {
@@ -827,7 +825,8 @@
         <p class="section-subtitle fade-in" data-translate="tech_subtitle">State-of-the-art equipment and stringent
           quality protocols</p>
         <div class="tech-grid">
-          <div class="tech-card fade-in">
+          <a href="technology/index.html#barcode-tracking" class="tech-card fade-in"
+            style="text-decoration: none; color: inherit;">
             <div class="tech-icon">
               <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                 <path
@@ -839,8 +838,9 @@
               <p data-translate="tech_barcode_desc">Every sample is barcoded for complete traceability and error-free
                 processing.</p>
             </div>
-          </div>
-          <div class="tech-card fade-in">
+          </a>
+          <a href="technology/index.html#calibrated-analyzers" class="tech-card fade-in"
+            style="text-decoration: none; color: inherit;">
             <div class="tech-icon">
               <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                 <path
@@ -852,8 +852,9 @@
               <p data-translate="tech_calibrated_desc">All equipment regularly calibrated to manufacturer specifications
                 for accurate results.</p>
             </div>
-          </div>
-          <div class="tech-card fade-in">
+          </a>
+          <a href="technology/index.html#internal-qc" class="tech-card fade-in"
+            style="text-decoration: none; color: inherit;">
             <div class="tech-icon">
               <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                 <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -864,8 +865,9 @@
               <p data-translate="tech_qc_desc">Daily QC runs with certified control materials to ensure consistent
                 accuracy.</p>
             </div>
-          </div>
-          <div class="tech-card fade-in">
+          </a>
+          <a href="technology/index.html#biohazard-safety" class="tech-card fade-in"
+            style="text-decoration: none; color: inherit;">
             <div class="tech-icon">
               <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                 <path
@@ -877,7 +879,7 @@
               <p data-translate="tech_safety_desc">Strict biosafety protocols protect staff and patients from exposure
                 risks.</p>
             </div>
-          </div>
+          </a>
         </div>
         <div style="text-align: center; margin-top: 50px;">
           <a href="technology/" class="btn btn-secondary" data-translate="btn_learn_more">Learn More</a>

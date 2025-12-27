@@ -211,6 +211,17 @@ const catalogData = {
                     preparation: 'Mid-stream clean-catch sample. Examine within 1 hour of collection for accurate results.',
                     image: '/HCDC/assets/tests/urine_micro.png',
                     parameters: 'Erythrocytes (RBCs), Pus Cells, Epithelial Cells, Casts, Crystals'
+                },
+                {
+                    id: 'urine_culture',
+                    name: 'Urine Culture',
+                    aliases: 'Urine C/S, Urine Culture and Sensitivity, Bacteriuria Test',
+                    desc: 'Laboratory test that detects and identifies bacteria or yeast in urine. Determines which antibiotics will be effective for treatment of urinary tract infections.',
+                    importance: 'Gold standard for diagnosing urinary tract infections. Identifies the specific pathogen and guides antibiotic selection for effective treatment.',
+                    conditions: 'Urinary Tract Infection (UTI), Cystitis, Pyelonephritis, Recurrent UTI, Complicated UTI',
+                    symptoms: 'Burning sensation during urination, frequent urge to urinate, cloudy or foul-smelling urine, blood in urine, lower abdominal pain, fever with UTI symptoms.',
+                    preparation: 'Clean-catch midstream urine sample required. Clean the genital area before collection. First morning sample preferred for best results.',
+                    image: '/HCDC/assets/tests/urine_culture.png'
                 }
             ]
         },
@@ -432,6 +443,42 @@ const catalogData = {
             name: 'Hematology',
             icon: '/HCDC/assets/icons/blood.png',
             tests: [
+                {
+                    id: 'cbc',
+                    name: 'C.B.C. (Complete Blood Count)',
+                    aliases: 'Complete Hemogram, Full Blood Count, CBC with Differential',
+                    desc: 'Comprehensive blood test that measures all major components of blood including red cells, white cells, hemoglobin, hematocrit, and platelets. Provides complete picture of blood health.',
+                    importance: 'Most commonly ordered blood test. Screens for anemia, infections, blood cancers, and clotting disorders. Essential for general health assessment.',
+                    conditions: 'Anemia, Infections, Leukemia, Blood Disorders, Immune System Problems, Bone Marrow Disorders',
+                    symptoms: 'Fatigue, weakness, fever, bruising, frequent infections, unexplained weight loss, swollen lymph nodes.',
+                    preparation: 'No fasting required. Can be done at any time of day.',
+                    image: '/HCDC/assets/tests/cbc.png',
+                    normalRange: 'Multiple parameters'
+                },
+                {
+                    id: 'wbc_count',
+                    name: 'W.B.C. Count (Total Leucocyte Count)',
+                    aliases: 'White Blood Cell Count, TLC, Leucocyte Count',
+                    desc: 'Measures the total number of white blood cells in blood. WBCs are essential for immune defense against infections and foreign substances.',
+                    importance: 'Elevated WBC indicates infection or inflammation. Low WBC suggests immune deficiency or bone marrow problems. Normal range is 4000-11000/cmm.',
+                    conditions: 'Bacterial Infections, Viral Infections, Leukemia, Immune Disorders, Bone Marrow Failure',
+                    symptoms: 'Fever, chills, frequent infections, fatigue, unexplained bruising, night sweats.',
+                    preparation: 'No fasting required. Can be done at any time.',
+                    image: '/HCDC/assets/tests/wbc.png',
+                    normalRange: '4000-11000/cmm'
+                },
+                {
+                    id: 'platelet_count',
+                    name: 'Platelet Count',
+                    aliases: 'Thrombocyte Count, PLT, Platelet Level',
+                    desc: 'Measures the number of platelets (thrombocytes) in blood. Platelets are essential for blood clotting and wound healing.',
+                    importance: 'Low count (thrombocytopenia) causes bleeding problems. High count (thrombocytosis) may cause clot formation. Normal range is 1.5-4.0 lakh/cmm.',
+                    conditions: 'Thrombocytopenia, Dengue Fever, Leukemia, ITP, Bone Marrow Disorders, Liver Disease',
+                    symptoms: 'Easy bruising, prolonged bleeding from cuts, petechiae (tiny red spots), nosebleeds, blood in urine or stool.',
+                    preparation: 'No fasting required. Important to monitor during dengue fever.',
+                    image: '/HCDC/assets/tests/platelets.png',
+                    normalRange: '1.5-4.0 lakh/cmm'
+                },
                 {
                     id: 'rbc_count',
                     name: 'R.B.C. Count',
@@ -911,7 +958,7 @@ const catalogData = {
                 'Fasting & PP Blood Sugar',
                 'Urine Sugar Analysis'
             ],
-            image: '/HCDC/assets/packages/diabetes_screening.png',
+            image: '/HCDC/assets/packages/diabetes_glucometer.png',
             includes: [
                 "Blood Sugar (Fasting)", "Blood Sugar (PP)", "HbA1c",
                 "Urine Sugar", "Urine Routine"

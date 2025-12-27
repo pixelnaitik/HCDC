@@ -29,11 +29,39 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/styles.min.css">
     <link rel="icon" type="image/png" href="../assets/logos/healthcare-logo.png">
     <link rel="manifest" href="../manifest.json">
     <link rel="apple-touch-icon" href="../assets/logos/healthcare-logo.png">
     <meta name="theme-color" content="#2563eb">
+
+    <!-- Structured Data for About Page -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Health Care Diagnostic Center",
+        "description": "Trusted pathology lab serving Konch, Gaya, Bihar for 20+ years with accurate diagnostics and certified partner labs.",
+        "foundingDate": "2005",
+        "url": "https://pixelnaitik.github.io/HCDC/",
+        "logo": "https://pixelnaitik.github.io/HCDC/assets/logos/healthcare-logo.png",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Main Road, Konch",
+            "addressLocality": "Gaya",
+            "addressRegion": "Bihar",
+            "postalCode": "824203",
+            "addressCountry": "IN"
+        },
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+91-9162216654",
+            "contactType": "customer service",
+            "availableLanguage": ["English", "Hindi"]
+        },
+        "sameAs": []
+    }
+    </script>
 </head>
 
 <body>

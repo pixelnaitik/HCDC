@@ -29,11 +29,59 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/styles.min.css">
     <link rel="icon" type="image/png" href="../assets/logos/healthcare-logo.png">
     <link rel="manifest" href="../manifest.json">
     <link rel="apple-touch-icon" href="../assets/logos/healthcare-logo.png">
     <meta name="theme-color" content="#2563eb">
+
+    <!-- Anchor offset for fixed navbar -->
+    <style>
+        [id] {
+            scroll-margin-top: 100px;
+        }
+    </style>
+
+    <!-- Structured Data for Technology Page -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "MedicalClinic",
+        "name": "Health Care Diagnostic Center - Technology & Quality",
+        "description": "State-of-the-art diagnostic technology with stringent quality control protocols",
+        "url": "https://pixelnaitik.github.io/HCDC/technology/",
+        "medicalSpecialty": ["Clinical Laboratory", "Pathology"],
+        "hasCredential": [
+            {
+                "@type": "EducationalOccupationalCredential",
+                "credentialCategory": "Quality Certification",
+                "name": "ISO Protocols"
+            }
+        ],
+        "amenityFeature": [
+            {
+                "@type": "LocationFeatureSpecification",
+                "name": "Barcode Sample Tracking",
+                "value": true
+            },
+            {
+                "@type": "LocationFeatureSpecification",
+                "name": "Calibrated Analyzers",
+                "value": true
+            },
+            {
+                "@type": "LocationFeatureSpecification",
+                "name": "Internal Quality Control",
+                "value": true
+            },
+            {
+                "@type": "LocationFeatureSpecification",
+                "name": "Biohazard Safety Protocols",
+                "value": true
+            }
+        ]
+    }
+    </script>
 </head>
 
 <body>
@@ -127,7 +175,7 @@
                     </div>
                 </div>
                 <div class="about-image fade-in">
-                    <img src="../assets/images/tech-precision.jpg" alt="Modern laboratory equipment">
+                    <img src="../assets/images/tech-precision.jpg" alt="Modern laboratory equipment" loading="lazy">
                 </div>
             </div>
         </div>
@@ -142,7 +190,7 @@
 
             <div class="tech-grid">
                 <!-- Barcode Sample Tracking -->
-                <div class="glass-card fade-in tech-feature-card">
+                <div class="glass-card fade-in tech-feature-card" id="barcode-tracking">
                     <div style="display: flex; align-items: flex-start; gap: 20px;">
                         <div class="tech-icon" style="background: var(--trust-blue-100);">
                             <svg width="28" height="28" fill="none" stroke="var(--trust-blue-600)" stroke-width="2"
@@ -173,7 +221,7 @@
                 </div>
 
                 <!-- Calibrated Analyzers -->
-                <div class="glass-card fade-in tech-feature-card">
+                <div class="glass-card fade-in tech-feature-card" id="calibrated-analyzers">
                     <div style="display: flex; align-items: flex-start; gap: 20px;">
                         <div class="tech-icon" style="background: var(--teal-100);">
                             <svg width="28" height="28" fill="none" stroke="var(--teal-600)" stroke-width="2"
@@ -204,7 +252,7 @@
                 </div>
 
                 <!-- Internal Quality Control -->
-                <div class="glass-card fade-in tech-feature-card">
+                <div class="glass-card fade-in tech-feature-card" id="internal-qc">
                     <div style="display: flex; align-items: flex-start; gap: 20px;">
                         <div class="tech-icon" style="background: var(--safety-green-100);">
                             <svg width="28" height="28" fill="none" stroke="var(--safety-green-500)" stroke-width="2"
@@ -266,11 +314,12 @@
     </section>
 
     <!-- Biohazard Safety -->
+    <a id="biohazard-safety"></a>
     <section class="section">
         <div class="container">
             <div class="about-grid">
                 <div class="about-image fade-in">
-                    <img src="../assets/images/lab-safety.jpg" alt="Laboratory safety protocols">
+                    <img src="../assets/images/lab-safety.jpg" alt="Laboratory safety protocols" loading="lazy">
                 </div>
                 <div class="about-content fade-in">
                     <h2><span data-translate="tech_bio_title">Biohazard</span> <span class="gradient-text"

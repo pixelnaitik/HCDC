@@ -20,105 +20,121 @@ function initPartnerCarousel() {
 
   if (!wrapper || !carousel) return;
 
-  let isInteracting = false;
-  let startX = 0;
-  let currentTranslate = 0;
-  let prevTranslate = 0;
-  let animationPaused = false;
+  // Disable CSS animation
+  carousel.style.animation = 'none';
 
-  // Get current transform value
-  const getCurrentTranslate = () => {
-    const style = window.getComputedStyle(carousel);
-    const matrix = new DOMMatrix(style.transform);
-    return matrix.m41; // translateX value
-  };
+  // Constants based on CSS layout
+  // Card width (320px) + Gap (30px) = 350px per item
+  const ITEM_WIDTH = 350;
+  // 5 duplicate items at the end for seamless looping = 1750px
+  const RESET_THRESHOLD = 1750;
+  const AUTO_SPEED = 0.8; // Pixels per frame (~50px/sec at 60fps)
+  const PAUSE_DURATION = 3000; // ms
 
-  // Pause animation on touch/mouse interaction
-  const pauseAnimation = () => {
-    if (!animationPaused) {
-      prevTranslate = getCurrentTranslate();
-      carousel.style.animation = 'none';
-      carousel.style.transform = `translateX(${prevTranslate}px)`;
-      animationPaused = true;
-    }
-    isInteracting = true;
-  };
-
-  const resumeAnimation = () => {
-    setTimeout(() => {
-      if (!isInteracting && animationPaused) {
-        // Resume the animation from current position
-        carousel.style.animation = '';
-        carousel.style.transform = '';
-        animationPaused = false;
-      }
-    }, 2000); // Resume after 2 seconds of no interaction
-  };
-
-  // Touch events for mobile swipe - BIDIRECTIONAL
-  wrapper.addEventListener('touchstart', (e) => {
-    pauseAnimation();
-    startX = e.touches[0].clientX;
-    currentTranslate = prevTranslate;
-  }, { passive: true });
-
-  wrapper.addEventListener('touchmove', (e) => {
-    if (!isInteracting) return;
-    const currentX = e.touches[0].clientX;
-    const diff = currentX - startX;
-    currentTranslate = prevTranslate + diff;
-    
-    // Apply the transform for bidirectional movement
-    carousel.style.transform = `translateX(${currentTranslate}px)`;
-  }, { passive: true });
-
-  wrapper.addEventListener('touchend', () => {
-    prevTranslate = currentTranslate;
-    isInteracting = false;
-    resumeAnimation();
-  });
-
-  // Mouse events for desktop drag
+  // State
+  let currentX = 0;
   let isDragging = false;
-  
-  wrapper.addEventListener('mousedown', (e) => {
+  let isPaused = false;
+  let startX = 0;
+  let dragStartX = 0;
+  let restartTimeout = null;
+
+  // Main Animation Loop
+  function animate() {
+    if (!isDragging && !isPaused) {
+      currentX -= AUTO_SPEED;
+      checkBounds();
+      updateTransform();
+    }
+    requestAnimationFrame(animate);
+  }
+
+  // Helper to handle wrapping for infinite scroll
+  function checkBounds() {
+    // If we've scrolled past the reset point (moving left)
+    if (currentX <= -RESET_THRESHOLD) {
+      currentX += RESET_THRESHOLD;
+    }
+    // If we've dragged past the start (moving right)
+    else if (currentX > 0) {
+      currentX -= RESET_THRESHOLD;
+    }
+  }
+
+  function updateTransform() {
+    carousel.style.transform = `translate3d(${currentX}px, 0, 0)`;
+  }
+
+  function startDrag(clientX) {
     isDragging = true;
-    pauseAnimation();
-    startX = e.clientX;
-    currentTranslate = prevTranslate;
+    isPaused = true; // Ensure auto-scroll stops
+    startX = clientX;
+    dragStartX = currentX;
+
+    // Clear any pending restart timer
+    if (restartTimeout) {
+      clearTimeout(restartTimeout);
+      restartTimeout = null;
+    }
+
+    // Change cursor
     wrapper.style.cursor = 'grabbing';
-  });
+    // Remove transition if any (not used in this logic, but good practice)
+    carousel.style.transition = 'none';
+  }
 
-  wrapper.addEventListener('mousemove', (e) => {
+  function moveDrag(clientX) {
     if (!isDragging) return;
-    const currentX = e.clientX;
-    const diff = currentX - startX;
-    currentTranslate = prevTranslate + diff;
-    carousel.style.transform = `translateX(${currentTranslate}px)`;
-  });
 
-  wrapper.addEventListener('mouseup', () => {
-    if (isDragging) {
-      isDragging = false;
-      prevTranslate = currentTranslate;
-      isInteracting = false;
-      wrapper.style.cursor = 'grab';
-      resumeAnimation();
+    const delta = clientX - startX;
+    currentX = dragStartX + delta;
+
+    checkBounds();
+    updateTransform();
+  }
+
+  function endDrag() {
+    if (!isDragging) return;
+    isDragging = false;
+    wrapper.style.cursor = 'grab';
+
+    // Restart auto-scroll after delay
+    restartTimeout = setTimeout(() => {
+      isPaused = false;
+    }, PAUSE_DURATION);
+  }
+
+  // Touch Events
+  wrapper.addEventListener('touchstart', (e) => startDrag(e.touches[0].clientX), { passive: true });
+  wrapper.addEventListener('touchmove', (e) => moveDrag(e.touches[0].clientX), { passive: true });
+  wrapper.addEventListener('touchend', endDrag);
+
+  // Mouse Events
+  wrapper.addEventListener('mousedown', (e) => {
+    e.preventDefault(); // Prevent text selection
+    startDrag(e.clientX);
+  });
+  window.addEventListener('mousemove', (e) => moveDrag(e.clientX));
+  window.addEventListener('mouseup', endDrag);
+
+  // Pause on hover (Desktop)
+  wrapper.addEventListener('mouseenter', () => {
+    if (!isDragging) {
+      isPaused = true;
+      if (restartTimeout) clearTimeout(restartTimeout);
     }
   });
 
   wrapper.addEventListener('mouseleave', () => {
-    if (isDragging) {
-      isDragging = false;
-      prevTranslate = currentTranslate;
-      isInteracting = false;
-      wrapper.style.cursor = 'grab';
-      resumeAnimation();
+    if (!isDragging) {
+      restartTimeout = setTimeout(() => {
+        isPaused = false;
+      }, PAUSE_DURATION);
     }
   });
 
-  // Set initial cursor
-  wrapper.style.cursor = 'grab';
+  // Start the loop
+  requestAnimationFrame(animate);
 }
 
 
